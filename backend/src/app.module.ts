@@ -1,10 +1,19 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from './controllers/app.controller';
+import { AppService } from './services/app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import Usuario from './domain/usuario.entity';
+import { UsuarioController } from './controllers/usuario.controller';
+import { UsuarioService } from './services/usuario.service';
+import { DataSource } from 'typeorm';
+import ormconfig from '../ormconfig';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [TypeOrmModule.forRoot(ormconfig),
+  TypeOrmModule.forFeature([Usuario])],
+  controllers: [AppController, UsuarioController],
+  providers: [AppService, UsuarioService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) { }
+}
