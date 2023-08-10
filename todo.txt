@@ -1,9 +1,9 @@
 TODOS:
 
 Configurar ambiente:
-	-> Criar um projeto NestJS (backend);
-	-> Criar um projeto NextJS (frontend) e;
-	-> Configurar o Docker-Compose com backend, frontend e banco de dados (PostgresSQL).
+	-> Criar um projeto NestJS (backend) ✅;
+	-> Criar um projeto NextJS (frontend) e ✅;
+	-> Configurar o Docker-Compose com backend, frontend e banco de dados (PostgresSQL) ✅.
 
 Backend:
 	-> Criar a entidade usuário (já junto ao banco de dados);
@@ -16,3 +16,7 @@ Frontend:
 	-> Criar as telas;
 	-> Configurar SessionStorage para armazenar token de autenticação e;
 	-> Configurar conexão com o backend.
+
+Testes:
+	-> Criar testes de unidades no backend e;
+	-> Criar testes de unidades no frontend.
