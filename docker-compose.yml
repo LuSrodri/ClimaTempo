@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: "climatempo"
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "1234567"
+    ports:
+      - "5432:5432"
+
+  api: 
+    env_file:
+      - .env
+    depends_on:
+      - db
+    build: ./backend
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+
+  frontend: 
+    env_file:
+      - .env
+    depends_on:
+      - api
+    build: ./frontend
+    ports:
+      - 3002:3002
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
