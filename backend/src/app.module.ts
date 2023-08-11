@@ -12,6 +12,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './auth/constants';
 import { AuthController } from './controllers/auth.controller';
 import Cidade from './domain/cidade.entity';
+import { ClimaController } from './controllers/clima.controller';
+import { ClimaService } from './services/clima.service';
 
 @Module({
   imports: [TypeOrmModule.forRoot(ormconfig),
@@ -22,8 +24,8 @@ import Cidade from './domain/cidade.entity';
     secret: jwtConstants.secret,
     signOptions: { expiresIn: '7d' },
   }),],
-  controllers: [AppController, UsuarioController, AuthController],
-  providers: [AppService, UsuarioService, AuthService],
+  controllers: [AppController, UsuarioController, AuthController, ClimaController],
+  providers: [AppService, UsuarioService, AuthService, ClimaService],
 })
 export class AppModule {
   constructor(private dataSource: DataSource) { }

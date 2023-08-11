@@ -10,7 +10,7 @@ Backend:
 	-> Configurar autenticação (senha deve ser armazenada de forma criptografada no banco de dados) ✅;
 	-> Criar a entidade cidade ✅;
 	-> Atribuir uma lista de cidades ao usuário (Relação One-to-many/Many-to-one) e ✅;
-	-> Configurar conexão com a API OpenWeatherMap (Deve trazer informações atuais sobre o clima de acordo com a lista de cidades do usuário).
+	-> Configurar conexão com a API OpenWeatherMap (Deve trazer informações atuais sobre o clima de acordo com a lista de cidades do usuário) ✅.
 
 Frontend:
 	-> Criar as telas;

@@ -3,11 +3,12 @@ import { AuthGuard } from "src/auth/auth.guard";
 import Cidade from "src/domain/cidade.entity";
 import Usuario from "src/domain/usuario.entity";
 import GetUsuarioDTO from "src/dto/GetUsuarioDTO";
+import { ClimaService } from "src/services/clima.service";
 import { UsuarioService } from "src/services/usuario.service";
 
 @Controller('usuarios')
 export class UsuarioController {
-    constructor(private usuarioService: UsuarioService) { }
+    constructor(private usuarioService: UsuarioService, private climaService: ClimaService) { }
 
     @UseGuards(AuthGuard)
     @Get(':id')
@@ -49,6 +50,18 @@ export class UsuarioController {
         if (req.user.id != params.id) throw new HttpException('Você não tem permissão para acessar esse recurso', HttpStatus.FORBIDDEN);
         try {
             return { id: params.id, cidades: await this.usuarioService.getCidades(params.id) };
+        }
+        catch (e) {
+            throw e;
+        }
+    }
+    
+    @UseGuards(AuthGuard)
+    @Get(':id/climas')
+    async getClimas(@Param() params: any, @Request() req: any): Promise<any[]> {
+        if (req.user.id != params.id) throw new HttpException('Você não tem permissão para acessar esse recurso', HttpStatus.FORBIDDEN);
+        try {
+            return this.climaService.getClimas(params.id);
         }
         catch (e) {
             throw e;
