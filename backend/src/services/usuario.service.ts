@@ -3,6 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import Usuario from "src/domain/usuario.entity";
 import GetUsuarioDTO from "src/dto/GetUsuarioDTO";
 import { Repository } from "typeorm";
+const bcrypt = require('bcrypt');
 
 @Injectable()
 export class UsuarioService {
@@ -12,7 +13,7 @@ export class UsuarioService {
         if (await this.usuariosRepository.findOne({ where: { email } })) throw new Error('Email já cadastrado');
 
         try {
-            const usuario = new Usuario(nome, email, senha);
+            const usuario = new Usuario(nome, email, await bcrypt.hash(senha, 10));
             await this.usuariosRepository.save(usuario);
             return usuario.getId();
         }
@@ -27,5 +28,9 @@ export class UsuarioService {
         if (!usuario) throw new HttpException('Usuário não encontrado', HttpStatus.NOT_FOUND);
 
         return new GetUsuarioDTO(usuario.getNome(), usuario.getEmail());
+    }
+
+    async getUsuarioByEmail(email: string): Promise<Usuario | undefined> {
+        return await this.usuariosRepository.findOne({ where: { email } });
     }
 }
