@@ -1,4 +1,4 @@
-import testEmail from "src/functions/testEmail";
+import { IsEmail, IsNotEmpty } from "class-validator";
 import { Column, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,18 +11,22 @@ export default class Usuario {
         type: 'varchar',
         length: 255,
     })
+    @IsNotEmpty({message: "O nome é obrigatório"})
     nome: string;
 
     @Column({
         type: 'varchar',
         length: 255,
     })
+    @IsNotEmpty({message: "O email é obrigatório"})
+    @IsEmail({},{message: "O email deve ser válido"})
     email: string;
 
     @Column({
         type: 'varchar',
         length: 255,
     })
+    @IsNotEmpty({message: "A senha é obrigatória"})
     senha: string;
 
     constructor(nome: string, email: string, senha: string) {
@@ -48,8 +52,6 @@ export default class Usuario {
     }
 
     setEmail(email: string) {
-        if(!testEmail(email)) throw new Error('Email inválido');
-
         this.email = email;
     }
 

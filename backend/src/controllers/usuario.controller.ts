@@ -1,6 +1,6 @@
 import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from "@nestjs/common";
+import Usuario from "src/domain/usuario.entity";
 import GetUsuarioDTO from "src/dto/GetUsuarioDTO";
-import PostUsuarioDTO from "src/dto/PostUsuarioDTO";
 import { UsuarioService } from "src/services/usuario.service";
 
 @Controller('usuarios')
@@ -18,7 +18,7 @@ export class UsuarioController {
     }
 
     @Post()
-    async createUsuario(@Body() usuario: PostUsuarioDTO): Promise<{id: string}> {
+    async createUsuario(@Body() usuario: Usuario): Promise<{id: string}> {
         try {
             return {id: await this.usuarioService.createUsuario(usuario.nome, usuario.email, usuario.senha)};
         }
