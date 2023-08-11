@@ -60,4 +60,16 @@ export class UsuarioService {
 
         return cidades || [];
     }
+
+    async removeCidade(id: string, cidadeId: string): Promise<void> {
+        const usuario: Usuario | undefined = await this.usuariosRepository.findOne({ where: { id } });
+
+        if (!usuario) throw new HttpException('Usuário não encontrado', HttpStatus.NOT_FOUND);
+
+        const cidade: Cidade | undefined = await this.cidadeRepository.findOne({ where: { id: cidadeId, usuario: { id } } });
+
+        if (!cidade) throw new HttpException('Cidade não encontrada', HttpStatus.NOT_FOUND);
+
+        await this.cidadeRepository.delete(cidade.id);
+    }
 }

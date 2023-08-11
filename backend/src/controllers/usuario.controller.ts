@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Param, Post, UseGuards, Request } from "@nestjs/common";
+import { Body, Controller, Get, HttpException, HttpStatus, Param, Post, UseGuards, Request, Delete, HttpCode } from "@nestjs/common";
 import { AuthGuard } from "src/auth/auth.guard";
 import Cidade from "src/domain/cidade.entity";
 import Usuario from "src/domain/usuario.entity";
@@ -55,13 +55,27 @@ export class UsuarioController {
             throw e;
         }
     }
-    
+
     @UseGuards(AuthGuard)
     @Get(':id/climas')
     async getClimas(@Param() params: any, @Request() req: any): Promise<any[]> {
         if (req.user.id != params.id) throw new HttpException('Você não tem permissão para acessar esse recurso', HttpStatus.FORBIDDEN);
         try {
             return this.climaService.getClimas(params.id);
+        }
+        catch (e) {
+            throw e;
+        }
+    }
+
+    @HttpCode(204)
+    @UseGuards(AuthGuard)
+    @Delete(':id/cidades/:idcidade')
+    async deleteCidade(@Param() params: any, @Request() req: any): Promise<any> {
+        if (req.user.id != params.id) throw new HttpException('Você não tem permissão para acessar esse recurso', HttpStatus.FORBIDDEN);
+        try {
+            await this.usuarioService.removeCidade(params.id, params.idcidade);
+            return { response: "Cidade deletada com sucesso" };
         }
         catch (e) {
             throw e;

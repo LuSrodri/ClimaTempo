@@ -11,7 +11,7 @@ export class ClimaService {
 
     async buscaCidades(nomeCidade: string): Promise<string[]> {
         try {
-            const response = await fetch(`${process.env.API_WEATHER_URL}geo/1.0/direct?q=${nomeCidade}&appid=${process.env.API_WEATHER_KEY}`);
+            const response = await fetch(`${process.env.API_WEATHER_URL}geo/1.0/direct?q=${nomeCidade}&appid=${process.env.API_WEATHER_KEY}&lang=pt_br`);
             const data = await response.json();
             return data.map((obj: any) => { return { name: obj.name, lat: obj.lat, lon: obj.lon }; });
         }
@@ -31,7 +31,7 @@ export class ClimaService {
 
         try {
             for (const cidade in cidades) {
-                const response = await fetch(`${process.env.API_WEATHER_URL}data/2.5/weather?lat=${cidades[cidade].lat}&lon=${cidades[cidade].lon}&appid=${process.env.API_WEATHER_KEY}&units=metric`);
+                const response = await fetch(`${process.env.API_WEATHER_URL}data/2.5/weather?lat=${cidades[cidade].lat}&lon=${cidades[cidade].lon}&appid=${process.env.API_WEATHER_KEY}&units=metric&lang=pt_br`);
                 const data = await response.json();
                 climas.push({ nome: cidades[cidade].ref, current: data });
             }
