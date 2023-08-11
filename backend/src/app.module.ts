@@ -11,10 +11,12 @@ import { AuthService } from './services/auth.service';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './auth/constants';
 import { AuthController } from './controllers/auth.controller';
+import Cidade from './domain/cidade.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot(ormconfig),
   TypeOrmModule.forFeature([Usuario]),
+  TypeOrmModule.forFeature([Cidade]),
   JwtModule.register({
     global: true,
     secret: jwtConstants.secret,

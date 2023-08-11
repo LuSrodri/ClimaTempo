@@ -1,6 +1,7 @@
 import { IsEmail, IsNotEmpty } from "class-validator";
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 import { v4 as uuidv4 } from 'uuid';
+import Cidade from "./cidade.entity";
 
 @Entity()
 export default class Usuario {
@@ -28,6 +29,9 @@ export default class Usuario {
     })
     @IsNotEmpty({message: "A senha é obrigatória"})
     senha: string;
+
+    @OneToMany(() => Cidade, cidade => cidade.id)
+    cidades: Cidade[];
 
     constructor(nome: string, email: string, senha: string) {
         this.nome = nome;
