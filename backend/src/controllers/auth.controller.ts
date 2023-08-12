@@ -8,9 +8,9 @@ export class AuthController {
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  signIn(@Body() signInDto: SignInDTO) {
+  async signIn(@Body() signInDto: SignInDTO): Promise<any> {
     try{
-      return this.authService.signIn(signInDto.email, signInDto.senha);
+      return await this.authService.signIn(signInDto.email, signInDto.senha);
     }
     catch	(e) {
       throw e;

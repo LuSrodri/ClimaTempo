@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: "climatempo_test"
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "1234567"
+      
+    ports:
+      - "5431:5432"
