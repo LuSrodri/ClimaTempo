@@ -10,7 +10,7 @@ services:
       POSTGRES_USER: "root"
       POSTGRES_PASSWORD: "1234567"
     ports:
-      - "5432:5432"
+      - 5432:5432
 
   api: 
     env_file:
