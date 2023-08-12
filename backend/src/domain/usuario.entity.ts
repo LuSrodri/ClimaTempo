@@ -1,33 +1,32 @@
 import { IsEmail, IsNotEmpty } from "class-validator";
-import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
-import { v4 as uuidv4 } from 'uuid';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import Cidade from "./cidade.entity";
 
 @Entity()
 export default class Usuario {
-    @PrimaryColumn()
-    id: string = uuidv4();
+    @PrimaryGeneratedColumn("uuid")
+    id: string;
 
     @Column({
         type: 'varchar',
         length: 255,
     })
-    @IsNotEmpty({message: "O nome é obrigatório"})
+    @IsNotEmpty({ message: "O nome é obrigatório" })
     nome: string;
 
     @Column({
         type: 'varchar',
         length: 255,
     })
-    @IsNotEmpty({message: "O email é obrigatório"})
-    @IsEmail({},{message: "O email deve ser válido"})
+    @IsNotEmpty({ message: "O email é obrigatório" })
+    @IsEmail({}, { message: "O email deve ser válido" })
     email: string;
 
     @Column({
         type: 'varchar',
         length: 255,
     })
-    @IsNotEmpty({message: "A senha é obrigatória"})
+    @IsNotEmpty({ message: "A senha é obrigatória" })
     senha: string;
 
     @OneToMany(() => Cidade, cidade => cidade.id)
