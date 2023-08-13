@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import styles from './page.module.css'
+import styles from '../page.module.css'
 import Link from 'next/link'
 
-export default function Home() {
+export default function Registrar() {
   return (
     <main className={styles.main}>
 
@@ -12,11 +12,12 @@ export default function Home() {
 
       <div className={styles.info}>
         <div className={styles.login}>
-          <h2>Olá, novamente!</h2>
+          <h2>Crie sua conta</h2>
+          <input placeholder='🧑 Nome Completo'></input>
           <input placeholder='📧 Endereço Email'></input>
           <input placeholder='🔒 Senha'></input>
-          <button>Entrar</button>
-          <p>Não tem conta? <Link href={'/registrar'}>Registra-se agora!</Link></p>
+          <button>Registrar</button>
+          <p>Já tem conta? <Link href={'/'}>Entre agora!</Link></p>
         </div>
       </div>
 
