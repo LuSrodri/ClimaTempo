@@ -245,6 +245,7 @@ HTTP CODE: `204`
 [
 	{
 		"nome": "New York",
+		"cidadeId": "4b673299-ff56-4969-a839-d2178601e72a",
 		"current": {
 			"coord": {
 				"lon": -74.006,

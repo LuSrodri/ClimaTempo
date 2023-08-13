@@ -33,7 +33,7 @@ export class ClimaService {
             for (const cidade in cidades) {
                 const response = await fetch(`${process.env.API_WEATHER_URL}data/2.5/weather?lat=${cidades[cidade].lat}&lon=${cidades[cidade].lon}&appid=${process.env.API_WEATHER_KEY}&units=metric&lang=pt_br`);
                 const data = await response.json();
-                climas.push({ nome: cidades[cidade].ref, current: data });
+                climas.push({ nome: cidades[cidade].ref, cidadeId: cidades[cidade].id, current: data });
             }
         }
         catch (e) {

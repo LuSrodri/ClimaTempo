@@ -42,7 +42,7 @@ export class UsuarioService {
 
         const cidade: Cidade | undefined = await this.cidadeRepository.findOne({ where: { lat, lon }, relations: ['usuario'] });
 
-        if (cidade) throw new HttpException('Cidade já cadastrada', HttpStatus.BAD_REQUEST);
+        if (cidade && cidade.usuario.id == id) throw new HttpException('Cidade já cadastrada', HttpStatus.BAD_REQUEST);
 
         const newCidade = new Cidade(ref, lat, lon);
         newCidade.usuario = usuario;
