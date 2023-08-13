@@ -24,4 +24,4 @@ Testes:
 Documentação:
 	-> Sobre o projeto, como instalar, como rodar, trabalhos futuros e o que fazer antes de subir em produção;
 	-> API e seus endpoints e ✅;
-	-> Frontend.
+	-> Frontend. ✅
