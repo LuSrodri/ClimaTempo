@@ -22,6 +22,6 @@ Testes:
 	-> Criar testes de unidades no frontend.
 
 Documentação:
-	-> Sobre o projeto, como instalar, como rodar, trabalhos futuros e o que fazer antes de subir em produção;
+	-> Sobre o projeto, como instalar, como rodar, trabalhos futuros e o que fazer antes de subir em produção ✅;
 	-> API e seus endpoints e ✅;
 	-> Frontend. ✅
