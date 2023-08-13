@@ -1,10 +1,22 @@
+'use client'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './dashboard.module.css'
 import Link from 'next/link'
 import { faCloudShowersHeavy, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons'
 import Card from '@/components/card'
+import { useEffect } from 'react'
+import isloggedin from '@/functions/isloggedin'
 
 export default function Dashboard() {
+
+  useEffect(() => {
+    callingIsloggedin();
+
+    async function callingIsloggedin() {
+      if (!(await isloggedin())) window.location.href = '/';
+    }
+  }, []);
+
   return (
     <main className={styles.main}>
       <div className={styles.topbar}>

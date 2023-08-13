@@ -13,8 +13,8 @@ Backend:
 	-> Configurar conexão com a API OpenWeatherMap (Deve trazer informações atuais sobre o clima de acordo com a lista de cidades do usuário) ✅.
 
 Frontend:
-	-> Criar as telas;
-	-> Configurar SessionStorage para armazenar token de autenticação e;
+	-> Criar as telas ✅;
+	-> Configurar SessionStorage para armazenar token de autenticação e ✅;
 	-> Configurar conexão com o backend.
 
 Testes:
