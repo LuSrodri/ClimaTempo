@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './dashboard.module.css'
 import Link from 'next/link'
 import { faCloudShowersHeavy, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons'
+import Card from '@/components/card'
 
 export default function Dashboard() {
   return (
@@ -11,7 +12,7 @@ export default function Dashboard() {
         <h3 className={styles.user}><FontAwesomeIcon icon={faUser} /> Lucas Santos Rodrigues</h3>
       </div>
 
-      <div className={[styles.firstcity, styles.raining].join(' ')}>
+      <div className={[styles.firstcity, styles.sunny].join(' ')}>
         <div style={{ minWidth: "60%" }}>
           <h2><FontAwesomeIcon icon={faCloudShowersHeavy} /></h2>
           <h3>Chuva Forte</h3>
@@ -30,7 +31,9 @@ export default function Dashboard() {
           <input placeholder={"+ Adicionar cidade"}></input>
         </div>
         <div className={styles.cities}>
-          // cidades
+          <Card  ></Card>
+          <Card  ></Card>
+          <Card  ></Card>
         </div>
       </div>
     </main>

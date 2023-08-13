@@ -1,6 +1,6 @@
 main.main {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,6 +32,7 @@ main.main>div.topbar>h3>a {
 
 main.main>div.firstcity {
     width: calc(98% - 100px);
+    min-height: 250px;
     height: 275px;
     color: #FFF;
 
@@ -75,6 +76,28 @@ main.main>div.raining {
     background-position: center 80%;
 }
 
+main.main>div.sunny {
+    background-image: url("/ensolarado.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+main.main>div.cloudy {
+    background-image: url("/nublado.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 80%;
+}
+
+main.main>div.snowing {
+    background-image: url("/nevando.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 80%;
+    color: #393939 !important;
+}
+
 main.main>div.allcities {
     width: calc(98% - 30px);
     height: 400px;
@@ -108,4 +131,14 @@ main.main>div.allcities>div.addcity>input {
     color: #393939;
     padding: 10px 10px;
     text-align: center;
+}
+
+main.main>div.allcities>div.cities {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: auto;
 }

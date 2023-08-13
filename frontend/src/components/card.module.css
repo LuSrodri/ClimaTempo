@@ -1,0 +1,71 @@
+div.container {
+    height: 350px;
+    width: 175px;
+    min-width: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 30px;
+}
+
+div.container>div.card {
+    width: calc(100% - 30px);
+    height: calc(300px - 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #D7DAFF;
+    border-radius: 25px;
+    padding: 15px;
+    filter: drop-shadow(0px 1.7777777910232544px 2.3611111640930176px rgba(84, 64, 210, 0.01)) drop-shadow(0px 7.8222222328186035px 4.888888835906982px rgba(84, 64, 210, 0.02)) drop-shadow(0px 19.200000762939453px 9.75px rgba(84, 64, 210, 0.03)) drop-shadow(0px 36.977779388427734px 19.11111068725586px rgba(84, 64, 210, 0.04)) drop-shadow(0px 62.22222137451172px 35.13888931274414px rgba(84, 64, 210, 0.05)) drop-shadow(0px 96px 60px rgba(84, 64, 210, 0.06));
+    margin-bottom: 10px;
+}
+
+div.container>div.green {
+    background-color: #E0FFCF;
+    filter: drop-shadow(0px 1.8518518209457397px 3.1481480598449707px rgba(113, 224, 94, 0.02)) drop-shadow(0px 8.148148536682129px 6.518518447875977px rgba(113, 224, 94, 0.03)) drop-shadow(0px 20px 13px rgba(113, 224, 94, 0.04)) drop-shadow(0px 38.51852035522461px 25.481481552124023px rgba(113, 224, 94, 0.04)) drop-shadow(0px 64.81481170654297px 46.85185241699219px rgba(113, 224, 94, 0.05)) drop-shadow(0px 100px 80px rgba(113, 224, 94, 0.07));
+}
+
+div.container>div.pink {
+    background-color: #FFD4FB;
+    filter: drop-shadow(0px 1.7777777910232544px 2.3611111640930176px rgba(182, 104, 232, 0.01)) drop-shadow(0px 7.8222222328186035px 4.888888835906982px rgba(182, 104, 232, 0.02)) drop-shadow(0px 19.200000762939453px 9.75px rgba(182, 104, 232, 0.03)) drop-shadow(0px 36.977779388427734px 19.11111068725586px rgba(182, 104, 232, 0.04)) drop-shadow(0px 62.22222137451172px 35.13888931274414px rgba(182, 104, 232, 0.05)) drop-shadow(0px 96px 60px rgba(182, 104, 232, 0.06));
+}
+
+div.container>div.card>h3 {
+    font-weight: 200;
+    margin: 0;
+    color: #020419;
+}
+
+div.container>div.card>h2 {
+    font-weight: 200;
+    margin: 0;
+    color: #020419;
+}
+
+div.container>div.card>h1 {
+    font-weight: 200;
+    margin: 0;
+    color: #020419;
+    font-size: 6rem;
+}
+
+div.container>button {
+    border-radius: 999px;
+    border: 1px solid var(--gray-200, #E5E7EB);
+    background: rgba(255, 255, 255, 0.80);
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+div.container:hover>button {
+    display: flex;
+}

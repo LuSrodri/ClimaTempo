@@ -4,7 +4,7 @@ main.main {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   background-image: url('/background.png');
   background-repeat: no-repeat;
