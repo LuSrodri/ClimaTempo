@@ -124,7 +124,8 @@ main.main>div.allcities>div.addcity>h2 {
 }
 
 main.main>div.allcities>div.addcity>input {
-    width: 130px;
+    width: 145px;
+    max-width: 20vw;
     height: 10px;
     border-radius: 8px;
     border: 1px solid var(--gray-200, #E5E7EB);
@@ -141,4 +142,5 @@ main.main>div.allcities>div.cities {
     align-items: center;
     justify-content: flex-start;
     overflow-x: auto;
+    overflow-y: hidden;
 }

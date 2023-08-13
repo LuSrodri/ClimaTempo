@@ -15,7 +15,7 @@ Backend:
 Frontend:
 	-> Criar as telas ✅;
 	-> Configurar SessionStorage para armazenar token de autenticação e ✅;
-	-> Configurar conexão com o backend.
+	-> Configurar conexão com o backend. ✅
 
 Testes:
 	-> Criar testes de unidades no backend e ✅;
