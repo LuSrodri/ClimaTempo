@@ -47,7 +47,7 @@ export default function Dashboard() {
 
   async function getNome() {
     try {
-      const response = await fetch('http://localhost:3001/usuarios/' + sessionStorage.getItem('id'),
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL+'/usuarios/' + sessionStorage.getItem('id'),
         { method: 'GET', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('token') } });
       const data = await response.json();
       if (!response.ok) throw new Error();
@@ -59,7 +59,7 @@ export default function Dashboard() {
 
   async function getClimas() {
     try {
-      const response = await fetch('http://localhost:3001/usuarios/' + sessionStorage.getItem('id') + '/climas',
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL+'/usuarios/' + sessionStorage.getItem('id') + '/climas',
         { method: 'GET', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('token') } });
       const data = await response.json();
       if (!response.ok) throw new Error();
@@ -71,7 +71,7 @@ export default function Dashboard() {
 
   async function removeCity(id) {
     try {
-      await fetch('http://localhost:3001/usuarios/' + sessionStorage.getItem('id') + '/cidades/' + id,
+      await fetch(process.env.NEXT_PUBLIC_API_URL+'/usuarios/' + sessionStorage.getItem('id') + '/cidades/' + id,
         { method: 'DELETE', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('token') } });
       getClimas();
     }
@@ -86,7 +86,7 @@ export default function Dashboard() {
     if (e.target.value == "" || e.target.value == "Cidade não encontrada") return;
     const cidade = e.target.value;
     const timeout = setTimeout(async () => {
-      const response = await fetch('http://localhost:3001/climas/' + cidade,
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL+'/climas/' + cidade,
         { method: 'GET' });
       const data = (await response.json())[0];
       if (!response.ok || !data) {
@@ -100,7 +100,7 @@ export default function Dashboard() {
   }
 
   async function addCity(cidade = { ref, lat, lon }) {
-    await fetch('http://localhost:3001/usuarios/' + sessionStorage.getItem('id') + '/cidades',
+    await fetch(process.env.NEXT_PUBLIC_API_URL+'/usuarios/' + sessionStorage.getItem('id') + '/cidades',
       {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + sessionStorage.getItem('token') },
         body: JSON.stringify({ ref: cidade.ref, lat: cidade.lat, lon: cidade.lon })

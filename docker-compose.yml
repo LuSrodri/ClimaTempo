@@ -13,8 +13,6 @@ services:
       - 5432:5432
 
   api: 
-    env_file:
-      - .env
     depends_on:
       - db
     build: ./backend
@@ -25,8 +23,6 @@ services:
       - /home/app/node_modules
 
   frontend: 
-    env_file:
-      - .env
     depends_on:
       - api
     build: ./frontend
