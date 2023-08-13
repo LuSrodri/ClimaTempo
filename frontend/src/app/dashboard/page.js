@@ -9,7 +9,7 @@ import isloggedin from '@/functions/isloggedin'
 import capitalizeFirstLetter from '@/functions/capitalizefirstletter'
 
 const diasDaSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-const iconsWeather = { "Thunderstorm": faCloudShowersHeavy, "Drizzle": faCloudShowersHeavy, "Rain": faCloudShowersHeavy, "Atmosphere": faCloud, "Clouds": faCloud, "Snow": faSnowflake, "Clear": faSun };
+const iconsWeather = { "Thunderstorm": faCloudShowersHeavy, "Drizzle": faCloudShowersHeavy, "Rain": faCloudShowersHeavy, "Atmosphere": faCloud, "Clouds": faCloud, "Mist": faCloud, "Snow": faSnowflake, "Clear": faSun };
 
 export default function Dashboard() {
   const [nome, setNome] = useState('');
@@ -43,6 +43,9 @@ export default function Dashboard() {
     }
     getNome();
     getClimas();
+    setInterval(() => {
+      getClimas();
+    }, 1000 * 60 * 15);
   }, []);
 
   async function getNome() {

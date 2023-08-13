@@ -6,7 +6,7 @@ import { faCloud, faCloudShowersHeavy, faDroplet, faSnowflake, faSun, faX } from
 export default function Card(props = { city, temperature, humidity, weather, id, removeCity }) {
     const colors = [undefined, styles.green, styles.pink];
     const choisedColor = Math.round(props.temperature) % 2 === 0 ? (props.temperature > 16 ? colors[0] : colors[1]) : colors[2];
-    const iconWeather = { "Thunderstorm": faCloudShowersHeavy, "Drizzle": faCloudShowersHeavy, "Rain": faCloudShowersHeavy, "Atmosphere": faCloud, "Clouds": faCloud, "Snow": faSnowflake, "Clear": faSun };
+    const iconWeather = { "Thunderstorm": faCloudShowersHeavy, "Drizzle": faCloudShowersHeavy, "Rain": faCloudShowersHeavy, "Atmosphere": faCloud, "Clouds": faCloud, "Mist": faCloud, "Snow": faSnowflake, "Clear": faSun };
     const choisedIcon = iconWeather[props.weather];
 
     return (
