@@ -44,6 +44,9 @@ div.container>div.card>h2 {
     font-weight: 200;
     margin: 0;
     color: #020419;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 div.container>div.card>h1 {
