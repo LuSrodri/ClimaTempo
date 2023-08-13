@@ -1,0 +1,111 @@
+main.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main.main>div.topbar {
+    width: calc(100% - 40px);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+main.main>div.topbar>h3.user {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 100px;
+    color: #838383;
+}
+
+main.main>div.topbar>h3>a {
+    color: #838383;
+}
+
+main.main>div.firstcity {
+    width: calc(98% - 100px);
+    height: 275px;
+    color: #FFF;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 50px;
+    border-radius: 8px;
+}
+
+main.main>div.firstcity>div {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+main.main>div.firstcity>div>h3 {
+    font-weight: 200;
+    margin: 0;
+}
+
+main.main>div.firstcity>div>h2 {
+    font-weight: 400;
+    margin: 0;
+}
+
+main.main>div.firstcity>div>h1 {
+    font-weight: 200;
+    font-size: 4rem;
+    margin: 0;
+}
+
+main.main>div.raining {
+    background-image: url("/chuva.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 80%;
+}
+
+main.main>div.allcities {
+    width: calc(98% - 30px);
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 15px;
+    border-radius: 8px;
+}
+
+main.main>div.allcities>div.addcity {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main.main>div.allcities>div.addcity>h2 {
+    color: #393939;
+}
+
+main.main>div.allcities>div.addcity>input {
+    width: 130px;
+    height: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-200, #E5E7EB);
+    color: #393939;
+    padding: 10px 10px;
+    text-align: center;
+}
